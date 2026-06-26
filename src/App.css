@@ -1,0 +1,166 @@
+body, html, #root {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #0d000d;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  overflow: hidden;
+}
+
+.app-container {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+}
+
+/* Oda Arka Plan Katmanı */
+.room-bg-container {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  background: linear-gradient(135deg, #ff4d6d 0%, #800020 100%);
+}
+
+.room-bg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.85;
+}
+
+/* Grafik Katmanı */
+.graph-overlay {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+}
+
+/* Tıklanabilir Alanların Üst Konteyneri */
+.clickable-areas-container {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 3; /* Grafiğin de üstüne çıkardık, artık cam duvar engeline takılmaz */
+  pointer-events: none; /* Altındaki elementleri engellemesin */
+}
+
+/* Ortak Tıklama Alanı Kuralları */
+.clickable-area {
+  position: absolute;
+  cursor: pointer;
+  pointer-events: auto; /* Kendisi tıklamaları yakalasın */
+  
+  /* TEST İÇİN YARI ŞEFFAF MAVİ YAPTIK: */
+  background-color: rgba(255, 255, 255, 0); 
+  border: none;
+  
+  transition: background-color 0.2s ease-in-out;
+}
+
+.clickable-area:hover {
+  background-color: rgba(255, 77, 109, 0.4); 
+  border: 2px dashed #ff4d6d;
+}
+
+/* Koordinatlar */
+.yatak {
+  width: 22%;
+  height: 35%;
+  bottom: 0%;
+  left: 0%;
+}
+
+.tablolar {
+  width: 12%;
+  height: 45%;
+  top: 18%;
+  left: 1%;
+}
+
+.kitaplik {
+  width: 22%;
+  height: 60%;
+  top: 10%;
+  left: 29%;
+}
+
+.koltuk {
+  width: 13%;
+  height: 25%;
+  bottom: 25%;
+  left: 16%;
+}
+
+.masa {
+  width: 25%;
+  height: 45%;
+  bottom: 0%;
+  right: 0%;
+}
+
+/* Şık Gece Laciverti Detay Paneli */
+.info-panel {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  width: 400px;
+  max-height: 80vh;
+  background: rgba(10, 25, 47, 0.95); 
+  border: 1px solid #00b4d8;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7), 0 0 20px rgba(0, 180, 216, 0.3);
+  border-radius: 16px;
+  padding: 30px;
+  color: #e2e8f0;
+  z-index: 9999;
+  overflow-y: auto;
+  backdrop-filter: blur(10px);
+  animation: fadeIn 0.3s ease-out;
+}
+
+.info-panel h2 {
+  margin-top: 0;
+  color: #00b4d8;
+  font-size: 1.6rem;
+}
+
+.info-panel hr {
+  border: 0;
+  height: 1px;
+  background: linear-gradient(to right, #00b4d8, transparent);
+  margin: 15px 0;
+}
+
+.info-panel p {
+  line-height: 1.6;
+  font-size: 1rem;
+  white-space: pre-line;
+}
+
+.close-btn {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: none;
+  border: none;
+  color: #a0aec0;
+  font-size: 26px;
+  cursor: pointer;
+}
+
+.close-btn:hover {
+  color: #ff4d6d;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
