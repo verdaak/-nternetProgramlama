@@ -49,19 +49,18 @@ body, html, #root {
   position: absolute;
   top: 0;
   left: 0;
-  z-index: 3; /* Grafiğin de üstüne çıkardık, artık cam duvar engeline takılmaz */
-  pointer-events: none; /* Altındaki elementleri engellemesin */
+  z-index: 3;
+  pointer-events: none;
 }
 
 /* Ortak Tıklama Alanı Kuralları */
 .clickable-area {
   position: absolute;
   cursor: pointer;
-  pointer-events: auto; /* Kendisi tıklamaları yakalasın */
+  pointer-events: auto;
   
-  /* TEST İÇİN YARI ŞEFFAF MAVİ YAPTIK: */
   background-color: rgba(255, 255, 255, 0); 
-  border: none;
+  border: 2px solid blue;
   
   transition: background-color 0.2s ease-in-out;
 }
@@ -90,7 +89,7 @@ body, html, #root {
   width: 22%;
   height: 60%;
   top: 10%;
-  left: 29%;
+  left: 25%; 
 }
 
 .koltuk {
@@ -107,19 +106,19 @@ body, html, #root {
   right: 0%;
 }
 
-/* Şık Gece Laciverti Detay Paneli */
+/* Şık Toz Pembe Detay Paneli */
 .info-panel {
   position: absolute;
   top: 30px;
   right: 30px;
   width: 400px;
   max-height: 80vh;
-  background: rgba(10, 25, 47, 0.95); 
-  border: 1px solid #00b4d8;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7), 0 0 20px rgba(0, 180, 216, 0.3);
+  background: #FFC0CB !important; /* Toz pembe */
+  border: 2px solid #C71585;      /* Koyu pembe çerçeve */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
   border-radius: 16px;
   padding: 30px;
-  color: #e2e8f0;
+  color: #C71585 !important;      /* Koyu pembe yazı */
   z-index: 9999;
   overflow-y: auto;
   backdrop-filter: blur(10px);
@@ -128,14 +127,14 @@ body, html, #root {
 
 .info-panel h2 {
   margin-top: 0;
-  color: #00b4d8;
+  color: #C71585 !important;      /* Koyu pembe başlık */
   font-size: 1.6rem;
 }
 
 .info-panel hr {
   border: 0;
   height: 1px;
-  background: linear-gradient(to right, #00b4d8, transparent);
+  background: linear-gradient(to right, #C71585, transparent);
   margin: 15px 0;
 }
 
@@ -143,6 +142,7 @@ body, html, #root {
   line-height: 1.6;
   font-size: 1rem;
   white-space: pre-line;
+  color: #C71585; /* Yazı rengi güncellendi */
 }
 
 .close-btn {
@@ -151,13 +151,13 @@ body, html, #root {
   right: 15px;
   background: none;
   border: none;
-  color: #a0aec0;
+  color: #C71585;
   font-size: 26px;
   cursor: pointer;
 }
 
 .close-btn:hover {
-  color: #ff4d6d;
+  color: #8b004d;
 }
 
 @keyframes fadeIn {
