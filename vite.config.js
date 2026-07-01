@@ -3,5 +3,8 @@ import react from '@vitejs/plugin-react'
 
 export default defineConfig({
   plugins: [react()],
-  base: './', // GitHub Pages için kritik
+  base: './', 
+  build: {
+    outDir: 'docs',
+  },
 })
